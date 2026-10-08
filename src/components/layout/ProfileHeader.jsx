@@ -1,0 +1,24 @@
+import React from "react";
+
+function ProfileHeader() {
+  return (
+    <>
+      <header className="flex h-16 text-app-text items-center justify-between border-b border-white/10 bg-bg/80 px-4 backdrop-blur md:px-6">
+        <div>
+          <p className="text-sm text-app-text-muted">Welcome back</p>
+          <h2 className="font-bold">Good afternoon, Alex</h2>
+        </div>
+        <div className="flex items-center gap-3">
+          <button className="grid h-10 w-10 place-items-center rounded-xl border border-white/10 bg-app-surface text-app-text-muted">
+            🔔
+          </button>
+          <div className="hidden rounded-xl bg-app-surface px-3 py-2 text-sm sm:block">
+            Alex Morgan
+          </div>
+        </div>
+      </header>
+    </>
+  );
+}
+
+export default ProfileHeader;
