@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+:root {
+  --app-background: #f8f7fc;
+  --app-surface: #ffffff;
+  --app-surface-hover: #f1eefa;
+  --app-input: #f7f5fc;
+  --app-primary: #8b5cf6;
+  --app-primary-hover: #814ff5;
+  --app-primary-dark: #5531a8;
+  --app-primary-light: #8237ff;
+  --app-text: #181526;
+  --app-text-muted: #6b6780;
+  --app-border: #d8c9f5;
+  --app-success: #16805b;
+  --app-danger: #d6455d;
+  --app-warning: #b7791f;
+}
+
+html.dark {
+  --app-background: #010026;
+  --app-surface: #221b4d;
+
+  --app-surface-hover: #2e255c;
+
+  --app-input: #0a0f2f;
+
+  --app-primary: #8b5cf6;
+
+  --app-primary-hover: #814ff5;
+
+  --app-primary-dark: #5531a8;
+
+  --app-primary-light: #8237ff;
+
+  --app-text: #e5e7eb;
+
+  --app-text-muted: #a1a1aa;
+
+  --app-border: #724bda;
+
+  --app-success: #34c759;
+
+  --app-danger: #ff383c;
+
+  --app-warning: #f5c76b;
+}
+
+@theme {
+  --color-app-background: var(--app-background);
+  --color-app-surface: var(--app-surface);
+  --color-app-surface-hover: var(--color-app-surface-hover);
+  --color-app-input: var(--app-input);
+  --color-app-primary: var(--app-primary);
+  --color-app-primary-hover: var(--app-primary-hover);
+  --color-app-primary-dark: var(--app-primary-dark);
+  --color-app-primary-light: var(--app-primary-light);
+  --color-app-text: var(--app-text);
+  --color-app-text-muted: var(--app-text-muted);
+  --color-app-border: var(--app-border);
+  --color-app-success: var(--app-success);
+  --color-app-danger: var(--app-danger);
+  --color-app-warning: var(--app-warning);
+}
