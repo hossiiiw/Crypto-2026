@@ -2,9 +2,13 @@ import React, { useContext } from "react";
 import Sidebar from "../components/layout/Sidebar";
 import ProfileHeader from "../components/layout/ProfileHeader";
 import { AppThemeContext } from "../context/Theme/ThemeContext";
+import { AppLanguageContext } from "../context/Theme/Language/LanguageContext";
+import { useTranslation } from "react-i18next";
 
 function Setting() {
   const { theme, handleTheme } = useContext(AppThemeContext);
+  const { languageHandler } = useContext(AppLanguageContext);
+  const { t } = useTranslation();
   return (
     <>
       <div className="flex">
@@ -13,17 +17,19 @@ function Setting() {
           <ProfileHeader />
           <div className="mx-auto max-w-7xl p-4 md:p-6">
             <div>
-              <p className="text-sm text-app-text-muted">Account preferences</p>
-              <h1 className="text-3xl font-black">Settings</h1>
+              <p className="text-sm text-app-text-muted">
+                {t("setting.title-1")}
+              </p>
+              <h1 className="text-3xl font-black">{t("setting.setting")}</h1>
             </div>
             <div className="mt-7 max-w-4xl space-y-5">
               <section className="rounded-2xl border border-app-text/10 bg-app-surface p-6">
-                <h3 className="font-bold">Appearance</h3>
+                <h3 className="font-bold">{t("setting.appearance")}</h3>
                 <div className="mt-5 flex items-center justify-between">
                   <div>
-                    <b>Theme</b>
+                    <b>{t("setting.theme")}</b>
                     <p className="text-sm text-app-text-muted">
-                      Choose how Coinova looks.
+                      {t("setting.title-2")}
                     </p>
                   </div>
                   <div className="flex rounded-xl bg-app-input p-1">
@@ -31,48 +37,53 @@ function Setting() {
                       onClick={handleTheme}
                       className={`rounded-lg ${theme === "dark" ? "bg-app-primary" : ""} px-4 py-2 text-sm cursor-pointer  transition-colors duration-500`}
                     >
-                      Dark
+                      {t("setting.dark")}
                     </button>
                     <button
                       onClick={handleTheme}
                       className={`rounded-lg ${theme === "light" ? "bg-app-primary" : ""} px-4 py-2 text-sm cursor-pointer transition-colors duration-500`}
                     >
-                      Light
+                      {t("setting.light")}
                     </button>
                   </div>
                 </div>
                 <div className="mt-5 flex items-center justify-between">
                   <div>
-                    <b>Language</b>
+                    <b>{t("setting.language")}</b>
                     <p className="text-sm text-app-text-muted">
-                      Select your preferred language.
+                      {t("setting.title-3")}
                     </p>
                   </div>
-                  <select className="rounded-xl border border-app-text/10 bg-app-surface px-4 py-2">
-                    <option value={"EN"}>English </option>
-                    <option value={"FA"}>فارسی </option>
+                  <select
+                    onClick={(e) => {
+                      languageHandler(e.target.value);
+                    }}
+                    className="rounded-xl border border-app-text/10 bg-app-surface px-4 py-2"
+                  >
+                    <option value={"en"}>English </option>
+                    <option value={"fa"}>فارسی </option>
                   </select>
                 </div>
               </section>
               <section className="rounded-2xl border border-app-text/10 bg-app-surface p-6">
-                <h3 className="font-bold">Security</h3>
+                <h3 className="font-bold">{t("setting.security")}</h3>
                 <div className="mt-5 divide-y divide-white/10">
                   <div className="flex items-center justify-between py-4">
                     <div>
-                      <b>Two-factor authentication</b>
+                      <b>{t("setting.two-factor")}</b>
                       <p className="text-sm text-app-text-muted">
-                        Protect your account with an authenticator app.
+                        {t("setting.title-4")}
                       </p>
                     </div>
                     <span className="rounded-full bg-app-success/10 px-3 py-1 text-xs text-app-success">
-                      Enabled
+                      {t("setting.enable")}
                     </span>
                   </div>
                   <div className="flex items-center justify-between py-4">
                     <div>
-                      <b>Login notifications</b>
+                      <b>{t("setting.login")}</b>
                       <p className="text-sm text-app-text-muted">
-                        Receive alerts when a new device signs in.
+                        {t("setting.title-5")}
                       </p>
                     </div>
                     <span className="h-6 w-11 rounded-full bg-app-primary p-1">
@@ -82,12 +93,14 @@ function Setting() {
                 </div>
               </section>
               <section className="rounded-2xl border border-app-danger/20 bg-app-danger/5 p-6">
-                <h3 className="font-bold text-app-danger">Danger zone</h3>
+                <h3 className="font-bold text-app-danger">
+                  {t("setting.danger")}
+                </h3>
                 <p className="mt-2 text-sm text-app-text-muted">
-                  Deleting your account is permanent and cannot be undone.
+                  {t("setting.title-6")}
                 </p>
                 <button className="mt-4 rounded-xl border border-danger/30 px-4 py-2 text-sm text-app-danger cursor-pointer">
-                  Delete Account
+                  {t("setting.delete")}
                 </button>
               </section>
             </div>

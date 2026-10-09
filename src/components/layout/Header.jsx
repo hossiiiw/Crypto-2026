@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 function Header() {
+  const { t } = useTranslation();
   return (
     <>
       <header className="sticky top-0 z-50 border-b border-app-text/10 bg-app-background backdrop-blur">
@@ -16,16 +18,16 @@ function Header() {
           </Link>
           <nav className="hidden items-center gap-7 text-sm text-app-text-muted md:flex">
             <Link className="hover:textapp-texte" to="/market">
-              Markets
+              {t("header.market")}
             </Link>
             <Link className="hover:text-app-text" to="/buy-crypto">
-              Buy Crypto
+              {t("header.buy")}
             </Link>
             <Link className="hover:text-app-text" to="/easy-trade">
-              Trade
+              {t("header.trade")}
             </Link>
             <Link className="hover:text-app-text" to="/support">
-              Support
+              {t("header.support")}
             </Link>
           </nav>
           <div className="flex items-center gap-2">
@@ -33,13 +35,13 @@ function Header() {
               to="/login"
               className="hidden rounded-xl px-4 py-2 text-sm text-app-text-muted hover:text-app-text sm:block"
             >
-              Log in
+              {t("header.login")}
             </Link>
             <Link
               to="/"
               className="rounded-xl bg-app-primary px-4 py-2 text-sm font-bold text-app-text hover:bg-app-primary-hover"
             >
-              Get Started
+              {t("header.get-started")}
             </Link>
           </div>
         </div>

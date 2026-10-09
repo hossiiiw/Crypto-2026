@@ -1,6 +1,8 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 function CryptoTable() {
+  const { t } = useTranslation();
   return (
     <>
       <div className="rounded-3xl border border-app-text/10 bg-app-surface p-5 shadow-2xl shadow-app-primary/10">
@@ -16,17 +18,17 @@ function CryptoTable() {
         <div className="mt-8 flex h-64 items-end gap-2"></div>
         <div className="mt-5 grid grid-cols-3 gap-3 text-center text-xs text-app-text-muted">
           <span>
-            24H High
+            24H {t("landing.high")}
             <br />
             <b className="text-text">$69,420</b>
           </span>
           <span>
-            24H Low
+            24H {t("landing.low")}
             <br />
             <b className="text-text">$64,102</b>
           </span>
           <span>
-            Volume
+            {t("landing.volume")}
             <br />
             <b className="text-text">$2.8B</b>
           </span>

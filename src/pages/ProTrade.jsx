@@ -1,7 +1,9 @@
 import Sidebar from "../components/layout/Sidebar";
 import ProfileHeader from "../components/layout/ProfileHeader";
+import { useTranslation } from "react-i18next";
 
 function ProTrade() {
+  const { t } = useTranslation();
   return (
     <>
       <div className="flex">
@@ -11,11 +13,13 @@ function ProTrade() {
           <div className="mx-auto max-w-7xl p-4 md:p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-app-text-muted">Advanced trading</p>
+                <p className="text-sm text-app-text-muted">
+                  {t("pro-trade.title-1")}
+                </p>
                 <h1 className="text-3xl font-black">BTC/USDT</h1>
               </div>
               <span className="rounded-lg bg-app-success/10 px-3 py-2 text-app-success">
-                ● Market Open
+                ● {t("pro-trade.title-2")}
               </span>
             </div>
             <div className="mt-6 grid gap-4 xl:grid-cols-4">
@@ -43,14 +47,14 @@ function ProTrade() {
               <div className="rounded-2xl border border-app-text/10 bg-app-surface p-5">
                 <div className="flex gap-2">
                   <button className="flex-1 rounded-lg bg-app-primary py-2 text-sm font-bold">
-                    Limit
+                    {t("pro-trade.limit")}
                   </button>
                   <button className="flex-1 rounded-lg bg-app-text/5 py-2 text-sm text-app-text-muted">
-                    Market
+                    {t("pro-trade.market")}
                   </button>
                 </div>
                 <label className="mt-5 block text-xs text-app-text-muted">
-                  Price
+                  {t("pro-trade.price")}
                 </label>
                 <input
                   className="mt-2 w-full rounded-xl outline-none border border-app-text/10 bg-app-input p-3 focus:border-app-primary"
@@ -58,21 +62,21 @@ function ProTrade() {
                   placeholder="67842.21"
                 />
                 <label className="mt-4 block text-xs text-app-text-muted">
-                  Amount
+                  {t("pro-trade.amount")}
                 </label>
                 <input
                   className="mt-2 w-full rounded-xl outline-none border border-app-text/10 bg-app-input p-3  focus:border-app-primary"
                   placeholder="0.00"
                 />
                 <div className="mt-4 flex gap-1">
-                  <span>Cost :</span>
+                  <span>{t("pro-trade.cost")} :</span>
                   <span>100$</span>
                 </div>
                 <button className="mt-5 w-full rounded-xl bg-app-success py-3 font-bold text-app-background">
-                  Buy BTC
+                  {t("pro-trade.buy")} BTC
                 </button>
                 <button className="mt-2 w-full rounded-xl bg-app-danger py-3 font-bold text-app-text">
-                  Sell BTC
+                  {t("pro-trade.sell")} BTC
                 </button>
               </div>
             </div>

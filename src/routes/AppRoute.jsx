@@ -15,6 +15,7 @@ import Setting from "../pages/Setting";
 import Profile from "../pages/Profile";
 import ProTrade from "../pages/ProTrade";
 import History from "../pages/History";
+import Dashboard from "../pages/Dashboard";
 
 function AppRoute() {
   return (
@@ -30,6 +31,7 @@ function AppRoute() {
         </Route>
 
         <Route element={<ProtectedRoute />}>
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/wallet" element={<Wallet />} />
           <Route path="/easy-trade" element={<EasyTrade />} />
           <Route path="/pro-trade" element={<ProTrade />} />
