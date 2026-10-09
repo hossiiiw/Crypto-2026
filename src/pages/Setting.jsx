@@ -2,12 +2,12 @@ import React, { useContext } from "react";
 import Sidebar from "../components/layout/Sidebar";
 import ProfileHeader from "../components/layout/ProfileHeader";
 import { AppThemeContext } from "../context/Theme/ThemeContext";
-import { AppLanguageContext } from "../context/Theme/Language/LanguageContext";
+import { AppLanguageContext } from "../context/Language/LanguageContext";
 import { useTranslation } from "react-i18next";
 
 function Setting() {
   const { theme, handleTheme } = useContext(AppThemeContext);
-  const { languageHandler } = useContext(AppLanguageContext);
+  const { language, languageHandler } = useContext(AppLanguageContext);
   const { t } = useTranslation();
   return (
     <>
