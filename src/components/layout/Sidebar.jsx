@@ -30,7 +30,7 @@ function Sidebar() {
           Easy Trade
         </Link>
         <Link
-          to="/"
+          to="/pro-trade"
           className="block rounded-xl px-3 py-3 text-sm text-app-text-muted hover:bg-white/5 hover:text-white"
         >
           Pro Trade
@@ -42,13 +42,13 @@ function Sidebar() {
           Wallet
         </Link>
         <Link
-          to="/"
+          to="/market"
           className="block rounded-xl px-3 py-3 text-sm text-app-text-muted hover:bg-white/5 hover:text-white"
         >
           Markets
         </Link>
         <Link
-          to="/"
+          to="/history"
           className="block rounded-xl px-3 py-3 text-sm text-app-text-muted hover:bg-white/5 hover:text-white"
         >
           History
@@ -71,7 +71,7 @@ function Sidebar() {
           Settings
         </Link>
         <Link
-          to="/"
+          to="/support"
           className="block rounded-xl px-3 py-3 text-sm text-app-text-muted hover:bg-white/5 hover:text-white"
         >
           Support

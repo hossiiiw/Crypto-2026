@@ -13,6 +13,8 @@ import ProtectedRoute from "./ProtectedRoute";
 import EasyTrade from "../pages/EasyTrade";
 import Setting from "../pages/Setting";
 import Profile from "../pages/Profile";
+import ProTrade from "../pages/ProTrade";
+import History from "../pages/History";
 
 function AppRoute() {
   return (
@@ -30,8 +32,10 @@ function AppRoute() {
         <Route element={<ProtectedRoute />}>
           <Route path="/wallet" element={<Wallet />} />
           <Route path="/easy-trade" element={<EasyTrade />} />
+          <Route path="/pro-trade" element={<ProTrade />} />
           <Route path="/setting" element={<Setting />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/history" element={<History />} />
         </Route>
       </Routes>
     </>
