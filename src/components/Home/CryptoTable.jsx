@@ -3,7 +3,7 @@ import React from "react";
 function CryptoTable() {
   return (
     <>
-      <div className="rounded-3xl border border-white/10 bg-app-surface p-5 shadow-2xl shadow-app-primary/10">
+      <div className="rounded-3xl border border-app-text/10 bg-app-surface p-5 shadow-2xl shadow-app-primary/10">
         <div className="flex justify-between">
           <div>
             <p className="text-sm text-muted">BTC / USDT</p>

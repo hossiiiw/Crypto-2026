@@ -3,7 +3,7 @@ import React from "react";
 function CryptoPrice() {
   return (
     <>
-      <section className="border-y border-white/10 bg-app-surface/40">
+      <section className="border-y border-app-text/10 bg-app-surface/40">
         <div className="text-app-text mx-auto grid max-w-7xl grid-cols-2 gap-4 px-4 py-8 md:grid-cols-4">
           <div>
             <p className="text-sm text-app-text-muted">Bitcoin</p>

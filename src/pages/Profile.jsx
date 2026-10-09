@@ -14,7 +14,7 @@ function Profile() {
               <h1 className="text-3xl font-black">Profile</h1>
             </div>
             <div className="mt-7 grid gap-6 lg:grid-cols-3">
-              <div className="rounded-2xl border border-white/10 bg-app-surface p-6 text-center">
+              <div className="rounded-2xl border border-app-text/10 bg-app-surface p-6 text-center">
                 <div className="mx-auto grid h-24 w-24 place-items-center rounded-full bg-app-primary/20 text-3xl font-black text-app-primary">
                   AM
                 </div>
@@ -24,34 +24,34 @@ function Profile() {
                   Verified account
                 </span>
               </div>
-              <div className="rounded-2xl border border-white/10 bg-app-surface p-6 lg:col-span-2">
+              <div className="rounded-2xl border border-app-text/10 bg-app-surface p-6 lg:col-span-2">
                 <h3 className="font-bold">Personal information</h3>
                 <div className="mt-5 grid gap-4 md:grid-cols-2">
                   <label className="text-sm text-app-text-muted">
                     First name
                     <input
-                      className="mt-2 w-full rounded-xl border border-white/10 bg-app-input p-3 text-app-text-muted outline-none focus:border-app-primary"
+                      className="mt-2 w-full rounded-xl border border-app-text/10 bg-app-input p-3 text-app-text-muted outline-none focus:border-app-primary"
                       value="Alex"
                     />
                   </label>
                   <label className="text-sm text-app-text-muted">
                     Last name
                     <input
-                      className="mt-2 w-full rounded-xl border border-white/10 bg-app-input p-3 text-app-text-muted outline-none focus:border-app-primary"
+                      className="mt-2 w-full rounded-xl border border-app-text/10 bg-app-input p-3 text-app-text-muted outline-none focus:border-app-primary"
                       value="Morgan"
                     />
                   </label>
                   <label className="text-sm text-app-text-muted">
                     Email
                     <input
-                      className="mt-2 w-full rounded-xl border border-white/10 bg-app-input p-3 text-app-text-muted outline-none focus:border-app-primary"
+                      className="mt-2 w-full rounded-xl border border-app-text/10 bg-app-input p-3 text-app-text-muted outline-none focus:border-app-primary"
                       value="alex@example.com"
                     />
                   </label>
                   <label className="text-sm text-app-text-muted">
                     Phone
                     <input
-                      className="mt-2 w-full rounded-xl border border-white/10 bg-app-input p-3 text-app-text-muted outline-none focus:border-app-primary"
+                      className="mt-2 w-full rounded-xl border border-app-text/10 bg-app-input p-3 text-app-text-muted outline-none focus:border-app-primary"
                       value="+1 555 123 4567"
                     />
                   </label>

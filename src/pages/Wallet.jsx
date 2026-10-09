@@ -16,7 +16,7 @@ function Wallet() {
                 <h1 className="text-3xl font-black">Your assets</h1>
               </div>
               <div className="flex gap-2">
-                <button className="rounded-xl border border-white/10 bg-app-surface px-4 py-2">
+                <button className="rounded-xl border border-app-text/10 bg-app-surface px-4 py-2">
                   Deposit
                 </button>
                 <button className="rounded-xl bg-app-primary px-4 py-2 font-bold">
@@ -24,13 +24,13 @@ function Wallet() {
                 </button>
               </div>
             </div>
-            <div className="mt-7 rounded-2xl border border-white/10 bg-app-surface p-6">
+            <div className="mt-7 rounded-2xl border border-app-text/10 bg-app-surface p-6">
               <p className="text-sm text-app-text-muted">Total balance</p>
               <p className="mt-2 text-4xl font-black">$24,892.64</p>
             </div>
-            <div className="mt-6 overflow-x-auto rounded-2xl border border-white/10 bg-app-surface">
+            <div className="mt-6 overflow-x-auto rounded-2xl border border-app-text/10 bg-app-surface">
               <table className="w-full min-w-[700px] text-left">
-                <thead className="border-b border-white/10 text-sm text-app-text-muted">
+                <thead className="border-b border-app-text/10 text-sm text-app-text-muted">
                   <tr>
                     <th className="p-5">Asset</th>
                     <th>Balance</th>
@@ -41,7 +41,7 @@ function Wallet() {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr className="border-b border-white/5">
+                  <tr className="border-b border-app-text/5">
                     <td className="p-5 font-bold">a</td>
                     <td>b</td>
                     <td>p</td>

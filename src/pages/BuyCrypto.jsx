@@ -20,14 +20,14 @@ function BuyCrypto() {
         {/* Content */}
         <div className="mx-auto mt-8 grid w-full max-w-4xl grid-cols-1 gap-5 sm:mt-10 lg:grid-cols-2">
           {/* Buy Form */}
-          <div className="min-w-0 rounded-3xl border border-white/10 bg-app-surface p-4 sm:p-6">
+          <div className="min-w-0 rounded-3xl border border-app-text/10 bg-app-surface p-4 sm:p-6">
             {/* Buy / Sell */}
             <div className="flex gap-2">
               <button className="min-h-11 flex-1 rounded-xl bg-app-primary px-3 py-3 text-sm font-bold sm:text-base">
                 Buy
               </button>
 
-              <button className="min-h-11 flex-1 rounded-xl bg-white/5 px-3 py-3 text-sm text-app-text-muted sm:text-base">
+              <button className="min-h-11 flex-1 rounded-xl bg-app-text/5 px-3 py-3 text-sm text-app-text-muted sm:text-base">
                 Sell
               </button>
             </div>
@@ -37,7 +37,7 @@ function BuyCrypto() {
               You pay
             </label>
 
-            <div className="mt-2 flex min-w-0 items-center rounded-xl border border-white/10 bg-app-input p-3 sm:p-4">
+            <div className="mt-2 flex min-w-0 items-center rounded-xl border border-app-text/10 bg-app-input p-3 sm:p-4">
               <input
                 type="number"
                 inputMode="decimal"
@@ -55,7 +55,7 @@ function BuyCrypto() {
               You receive
             </label>
 
-            <div className="mt-2 flex min-w-0 items-center rounded-xl border border-white/10 bg-app-input p-3 sm:p-4">
+            <div className="mt-2 flex min-w-0 items-center rounded-xl border border-app-text/10 bg-app-input p-3 sm:p-4">
               <input
                 type="number"
                 inputMode="decimal"
@@ -75,7 +75,7 @@ function BuyCrypto() {
           </div>
 
           {/* Order Summary */}
-          <div className="min-w-0 rounded-3xl border border-white/10 bg-app-surface p-4 sm:p-6">
+          <div className="min-w-0 rounded-3xl border border-app-text/10 bg-app-surface p-4 sm:p-6">
             <h3 className="text-lg font-bold sm:text-xl">Order summary</h3>
 
             <div className="mt-6 space-y-4 text-sm sm:mt-7">
@@ -97,7 +97,7 @@ function BuyCrypto() {
                 <b className="shrink-0">$2.50</b>
               </div>
 
-              <div className="h-px bg-white/10" />
+              <div className="h-px bg-app-text/10" />
 
               <div className="flex items-center justify-between gap-4 text-lg">
                 <span>Total</span>

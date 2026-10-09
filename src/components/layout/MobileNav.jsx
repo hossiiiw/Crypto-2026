@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function MobileNav() {
   return (
     <>
-      <nav className="fixed bottom-0 left-0 right-0 z-[60] border-t border-white/10 bg-[#221B4D]/95 px-2 pb-[env(safe-area-inset-bottom)] pt-2 backdrop-blur-xl lg:hidden">
+      <nav className="fixed bottom-0 left-0 right-0 z-[60] border-t border-app-text/10 bg-[#221B4D]/95 px-2 pb-[env(safe-area-inset-bottom)] pt-2 backdrop-blur-xl lg:hidden">
         <div className="mx-auto grid max-w-lg grid-cols-5 gap-1">
           <Link
             to="/"

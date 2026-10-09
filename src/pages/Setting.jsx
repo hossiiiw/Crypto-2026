@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import Sidebar from "../components/layout/Sidebar";
 import ProfileHeader from "../components/layout/ProfileHeader";
+import { AppThemeContext } from "../context/Theme/ThemeContext";
 
 function Setting() {
+  const { theme, handleTheme } = useContext(AppThemeContext);
   return (
     <>
       <div className="flex">
@@ -15,7 +17,7 @@ function Setting() {
               <h1 className="text-3xl font-black">Settings</h1>
             </div>
             <div className="mt-7 max-w-4xl space-y-5">
-              <section className="rounded-2xl border border-white/10 bg-app-surface p-6">
+              <section className="rounded-2xl border border-app-text/10 bg-app-surface p-6">
                 <h3 className="font-bold">Appearance</h3>
                 <div className="mt-5 flex items-center justify-between">
                   <div>
@@ -25,10 +27,16 @@ function Setting() {
                     </p>
                   </div>
                   <div className="flex rounded-xl bg-app-input p-1">
-                    <button className="rounded-lg bg-app-primary px-4 py-2 text-sm cursor-pointer">
+                    <button
+                      onClick={handleTheme}
+                      className={`rounded-lg ${theme === "dark" ? "bg-app-primary" : ""} px-4 py-2 text-sm cursor-pointer  transition-colors duration-500`}
+                    >
                       Dark
                     </button>
-                    <button className="px-4 py-2 text-sm text-app-text-muted cursor-pointer">
+                    <button
+                      onClick={handleTheme}
+                      className={`rounded-lg ${theme === "light" ? "bg-app-primary" : ""} px-4 py-2 text-sm cursor-pointer transition-colors duration-500`}
+                    >
                       Light
                     </button>
                   </div>
@@ -40,13 +48,13 @@ function Setting() {
                       Select your preferred language.
                     </p>
                   </div>
-                  <select className="rounded-xl border border-white/10 bg-app-surface px-4 py-2">
+                  <select className="rounded-xl border border-app-text/10 bg-app-surface px-4 py-2">
                     <option value={"EN"}>English </option>
                     <option value={"FA"}>فارسی </option>
                   </select>
                 </div>
               </section>
-              <section className="rounded-2xl border border-white/10 bg-app-surface p-6">
+              <section className="rounded-2xl border border-app-text/10 bg-app-surface p-6">
                 <h3 className="font-bold">Security</h3>
                 <div className="mt-5 divide-y divide-white/10">
                   <div className="flex items-center justify-between py-4">
@@ -68,7 +76,7 @@ function Setting() {
                       </p>
                     </div>
                     <span className="h-6 w-11 rounded-full bg-app-primary p-1">
-                      <span className="block h-4 w-4 translate-x-5 rounded-full bg-white"></span>
+                      <span className="block h-4 w-4 translate-x-5 rounded-full bg-app-text"></span>
                     </span>
                   </div>
                 </div>

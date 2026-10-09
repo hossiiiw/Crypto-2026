@@ -1,7 +1,6 @@
-import React from "react";
+import { Link } from "react-router-dom";
 import CryptoPrice from "../components/Home/CryptoPrice";
 import CryptoTable from "../components/Home/CryptoTable";
-import MobileNav from "../components/layout/MobileNav";
 
 export default function Landing() {
   return (
@@ -18,22 +17,22 @@ export default function Landing() {
               <span className="text-app-primary">Your way.</span>
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-8 text-app-text-muted">
-              Buy, sell and manage your digital assets with a secure, fast and
-              beautifully simple crypto exchange.
+              Buy, sell and manage your digital assets with Link secure, fast
+              and beautifully simple crypto exchange.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <a
-                href="register.html"
+              <Link
+                to="/register"
                 className="rounded-xl bg-app-primary px-6 py-3 font-bold hover:bg-purple-600"
               >
                 Start Trading
-              </a>
-              <a
-                href="markets.html"
-                className="rounded-xl border border-white/10 bg-app-surface px-6 py-3 font-bold hover:bg-app-border"
+              </Link>
+              <Link
+                to="/market"
+                className="rounded-xl border border-app-text/10 bg-app-surface px-6 py-3 font-bold hover:bg-app-border"
               >
                 Explore Markets
-              </a>
+              </Link>
             </div>
             <div className="mt-8 flex gap-8 text-sm">
               <div>
@@ -57,10 +56,12 @@ export default function Landing() {
       <section className="mx-auto max-w-7xl px-4 py-20 text-app-text">
         <div className="text-center">
           <p className="font-bold text-app-primary">WHY COINOVA</p>
-          <h2 className="mt-2 text-4xl font-black">Everything you need to trade</h2>
+          <h2 className="mt-2 text-4xl font-black">
+            Everything you need to trade
+          </h2>
         </div>
         <div className="mt-12 grid gap-5 md:grid-cols-3">
-          <div className="rounded-2xl border border-white/10 bg-app-surface p-6">
+          <div className="rounded-2xl border border-app-text/10 bg-app-surface p-6">
             <div className="text-3xl">🛡️</div>
             <h3 className="mt-5 text-xl font-bold">Bank-grade security</h3>
             <p className="mt-3 text-sm leading-6 text-app-text-muted">
@@ -68,15 +69,15 @@ export default function Landing() {
               protection.
             </p>
           </div>
-          <div className="rounded-2xl border border-white/10 bg-app-surface p-6">
+          <div className="rounded-2xl border border-app-text/10 bg-app-surface p-6">
             <div className="text-3xl">⚡</div>
             <h3 className="mt-5 text-xl font-bold">Lightning fast</h3>
             <p className="mt-3 text-sm leading-6 text-app-text-muted">
-              Fast execution and a clean interface built for every level of
+              Fast execution and Link clean interface built for every level of
               trader.
             </p>
           </div>
-          <div className="rounded-2xl border border-white/10 bg-app-surface p-6">
+          <div className="rounded-2xl border border-app-text/10 bg-app-surface p-6">
             <div className="text-3xl">📊</div>
             <h3 className="mt-5 text-xl font-bold">Advanced tools</h3>
             <p className="mt-3 text-sm leading-6 text-app-text-muted">
@@ -86,7 +87,6 @@ export default function Landing() {
           </div>
         </div>
       </section>
-      
     </>
   );
 }

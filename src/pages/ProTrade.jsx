@@ -19,7 +19,7 @@ function ProTrade() {
               </span>
             </div>
             <div className="mt-6 grid gap-4 xl:grid-cols-4">
-              <div className="rounded-2xl border border-white/10 bg-app-surface p-5 xl:col-span-3">
+              <div className="rounded-2xl border border-app-text/10 bg-app-surface p-5 xl:col-span-3">
                 <div className="flex items-center justify-between">
                   <div>
                     <b className="text-2xl">$67,842.21</b>
@@ -40,12 +40,12 @@ function ProTrade() {
                   </div>
                 </div>
               </div>
-              <div className="rounded-2xl border border-white/10 bg-app-surface p-5">
+              <div className="rounded-2xl border border-app-text/10 bg-app-surface p-5">
                 <div className="flex gap-2">
                   <button className="flex-1 rounded-lg bg-app-primary py-2 text-sm font-bold">
                     Limit
                   </button>
-                  <button className="flex-1 rounded-lg bg-white/5 py-2 text-sm text-app-text-muted">
+                  <button className="flex-1 rounded-lg bg-app-text/5 py-2 text-sm text-app-text-muted">
                     Market
                   </button>
                 </div>
@@ -53,7 +53,7 @@ function ProTrade() {
                   Price
                 </label>
                 <input
-                  className="mt-2 w-full rounded-xl outline-none border border-white/10 bg-app-input p-3 focus:border-app-primary"
+                  className="mt-2 w-full rounded-xl outline-none border border-app-text/10 bg-app-input p-3 focus:border-app-primary"
                   //   value="67842.21"
                   placeholder="67842.21"
                 />
@@ -61,7 +61,7 @@ function ProTrade() {
                   Amount
                 </label>
                 <input
-                  className="mt-2 w-full rounded-xl outline-none border border-white/10 bg-app-input p-3  focus:border-app-primary"
+                  className="mt-2 w-full rounded-xl outline-none border border-app-text/10 bg-app-input p-3  focus:border-app-primary"
                   placeholder="0.00"
                 />
                 <div className="mt-4 flex gap-1">
@@ -71,7 +71,7 @@ function ProTrade() {
                 <button className="mt-5 w-full rounded-xl bg-app-success py-3 font-bold text-app-background">
                   Buy BTC
                 </button>
-                <button className="mt-2 w-full rounded-xl bg-app-danger py-3 font-bold text-white">
+                <button className="mt-2 w-full rounded-xl bg-app-danger py-3 font-bold text-app-text">
                   Sell BTC
                 </button>
               </div>

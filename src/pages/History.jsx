@@ -15,25 +15,25 @@ function History() {
               <p class="text-sm text-app-text-muted">Account activity</p>
               <h1 class="text-3xl font-black">Transaction history</h1>
             </div>
-            <div class="mt-7 rounded-2xl border border-white/10 bg-app-surface p-4">
+            <div class="mt-7 rounded-2xl border border-app-text/10 bg-app-surface p-4">
               <div class="flex flex-wrap gap-2">
                 <button class="rounded-lg bg-app-primary px-4 py-2 text-sm">
                   All
                 </button>
-                <button class="rounded-lg bg-white/5 px-4 py-2 text-sm text-app-text-muted">
+                <button class="rounded-lg bg-app-text/5 px-4 py-2 text-sm text-app-text-muted">
                   Buy
                 </button>
-                <button class="rounded-lg bg-white/5 px-4 py-2 text-sm text-app-text-muted">
+                <button class="rounded-lg bg-app-text/5 px-4 py-2 text-sm text-app-text-muted">
                   Sell
                 </button>
-                <button class="rounded-lg bg-white/5 px-4 py-2 text-sm text-app-text-muted">
+                <button class="rounded-lg bg-app-text/5 px-4 py-2 text-sm text-app-text-muted">
                   Deposit
                 </button>
               </div>
             </div>
-            <div class="mt-4 overflow-x-auto rounded-2xl border border-white/10 bg-app-surface">
+            <div class="mt-4 overflow-x-auto rounded-2xl border border-app-text/10 bg-app-surface">
               <table class="w-full min-w-[700px] text-left">
-                <thead class="border-b border-white/10 text-sm text-app-text-muted">
+                <thead class="border-b border-app-text/10 text-sm text-app-text-muted">
                   <tr>
                     <th class="p-5">Type</th>
                     <th>Asset</th>
@@ -44,7 +44,7 @@ function History() {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr class="border-b border-white/5">
+                  <tr class="border-b border-app-text/5">
                     <td class="p-5 font-bold">t</td>
                     <td>a</td>
                     <td>amt</td>
