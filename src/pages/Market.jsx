@@ -1,8 +1,65 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { getMarkets } from "../api/marketApi";
+const symbols = ["BTCUSDT", "ETHUSDT", "BNBUSDT", "XRPUSDT", "ADAUSDT"];
 
 function Market() {
   const { t } = useTranslation();
+
+  const [markets, setMarkets] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+  useEffect(() => {
+    let active = true;
+
+    const fetchMarkets = async () => {
+      try {
+        const data = await getMarkets(symbols);
+
+        if (active) {
+          setMarkets(data);
+          setError("");
+        }
+      } catch (err) {
+        if (active) {
+          setError("دریافت اطلاعات بازار ناموفق بود.");
+          console.error(err.response?.data || err.message);
+        }
+      } finally {
+        if (active) setLoading(false);
+      }
+    };
+
+    fetchMarkets();
+    const intervalId = setInterval(fetchMarkets, 5000);
+
+    return () => {
+      active = false;
+      clearInterval(intervalId);
+    };
+  }, []);
+
+  const formatPrice = (value) =>
+    Number(value).toLocaleString("en-US", {
+      maximumFractionDigits: 8,
+    });
+
+  if (loading) {
+    return <p className="p-6 text-gray-400">Loading markets...</p>;
+  }
+
+  if (error) {
+    return <p className="p-6 text-red-400">{error}</p>;
+  }
+
+  if (loading) {
+    return <p className="p-6 text-gray-400">Loading markets...</p>;
+  }
+
+  if (error) {
+    return <p className="p-6 text-red-400">{error}</p>;
+  }
+
   return (
     <>
       <main className="mx-auto max-w-7xl text-app-text px-4 py-12">
@@ -33,7 +90,7 @@ function Market() {
           <table className="w-[95%] min-w-[760px] text-left text-sm">
             <thead className="border-b border-app-text/10 text-app-text-muted">
               <tr>
-                <th className="p-5">{t("markets.assets")}</th>
+                <th className="p-5">{t("markets.asset")}</th>
                 <th>{t("markets.price")}</th>
                 <th>24h {t("markets.change")}</th>
                 <th>24h {t("markets.high")}</th>
@@ -43,65 +100,42 @@ function Market() {
               </tr>
             </thead>
             <tbody>
-              <tr className="border-b border-app-text/5 hover:bg-app-text/5">
-                <td className="p-5">
-                  <b>Bitcoin</b>
-                  <span className="ml-2 text-xs text-app-text-muted">BTC</span>
-                </td>
-                <td>$67,842</td>
-                <td className="text-app-success">+4.82%</td>
-                <td>$69,420</td>
-                <td>$64,102</td>
-                <td>$2.8B</td>
-                <td>
-                  <a
-                    href="trade.html"
-                    className="rounded-lg bg-app-primary/15 px-3 py-2 text-app-primary"
-                  >
-                    {t("markets.trade")}
-                  </a>
-                </td>
-              </tr>
+              {markets.map((coin) => {
+                const change = Number(coin.priceChangePercent);
+                const baseAsset = coin.symbol.replace("USDT", "");
+                console.log(coin);
 
-              <tr className="border-b border-app-text/5 hover:bg-app-text/5">
-                <td className="p-5">
-                  <b>Bitcoin</b>
-                  <span className="ml-2 text-xs text-app-text-muted">BTC</span>
-                </td>
-                <td>$67,842</td>
-                <td className="text-app-success">+4.82%</td>
-                <td>$69,420</td>
-                <td>$64,102</td>
-                <td>$2.8B</td>
-                <td>
-                  <a
-                    href="trade.html"
-                    className="rounded-lg bg-app-primary/15 px-3 py-2 text-app-primary"
-                  >
-                    {t("markets.trade")}
-                  </a>
-                </td>
-              </tr>
-
-              <tr className="border-b border-app-text/5 hover:bg-app-text/5">
-                <td className="p-5">
-                  <b>Bitcoin</b>
-                  <span className="ml-2 text-xs text-app-text-muted">BTC</span>
-                </td>
-                <td>$67,842</td>
-                <td className="text-app-success">+4.82%</td>
-                <td>$69,420</td>
-                <td>$64,102</td>
-                <td>$2.8B</td>
-                <td>
-                  <a
-                    href="trade.html"
-                    className="rounded-lg bg-app-primary/15 px-3 py-2 text-app-primary"
-                  >
-                    {t("markets.trade")}
-                  </a>
-                </td>
-              </tr>
+                return (
+                  <>
+                    <tr className="border-b border-app-text/5 hover:bg-app-text/5">
+                      <td className="p-5">
+                        <b>{baseAsset}</b>
+                        <span className="ml-2 text-xs text-app-text-muted">
+                          {coin.symbol.replace("USDT", "")}
+                        </span>
+                      </td>
+                      <td>${formatPrice(coin.lastPrice)}</td>
+                      <td
+                        className={`${change >= 0 ? "text-app-success" : "text-app-danger"}`}
+                      >
+                        {change >= 0 ? "+" : ""}
+                        {change}%
+                      </td>
+                      <td>${formatPrice(coin.highPrice)}</td>
+                      <td>${formatPrice(coin.lowPrice)}</td>
+                      <td>${formatPrice(coin.volume)}</td>
+                      <td>
+                        <a
+                          href="trade.html"
+                          className="rounded-lg bg-app-primary/15 px-3 py-2 text-app-primary"
+                        >
+                          {t("markets.trade")}
+                        </a>
+                      </td>
+                    </tr>
+                  </>
+                );
+              })}
             </tbody>
           </table>
         </div>
