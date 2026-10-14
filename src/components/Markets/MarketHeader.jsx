@@ -1,8 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
-function MarketHeader() {
+function MarketHeader({ search, onSearchChange }) {
   const { t } = useTranslation();
+  const [data, setData] = useState("");
+
+  // ---------------------Debouncing-----------------
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      onSearchChange(data);
+    }, 300);
+    return () => clearTimeout(timer);
+  }, [data, onSearchChange]);
+  // ---------------------Debouncing-----------------
   return (
     <>
       <div className="flex flex-wrap items-end justify-between gap-5">
@@ -24,6 +34,8 @@ function MarketHeader() {
       </div>
       <div className="mt-8 rounded-2xl border border-app-text/10 bg-app-surface p-4">
         <input
+          value={data}
+          onChange={(e) => setData(e.target.value)}
           className="w-full rounded-xl border border-app-text/10 bg-app-input px-4 py-3 outline-none focus:border-app-primary"
           placeholder={t("markets.input-plc")}
         />

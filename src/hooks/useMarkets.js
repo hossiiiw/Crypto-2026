@@ -1,14 +1,7 @@
-
 import { useEffect, useState } from "react";
 import { getMarkets } from "../api/marketApi";
 
-const symbols = [
-  "BTCUSDT",
-  "ETHUSDT",
-  "BNBUSDT",
-  "XRPUSDT",
-  "ADAUSDT",
-];
+const symbols = ["BTCUSDT", "ETHUSDT", "BNBUSDT", "XRPUSDT", "ADAUSDT"];
 
 export function useMarkets(t) {
   const [markets, setMarkets] = useState([]);
@@ -29,9 +22,7 @@ export function useMarkets(t) {
       } catch (err) {
         if (active) {
           setError(t("markets.error"));
-          console.error(
-            err.response?.data || err.message
-          );
+          console.error(err.response?.data || err.message);
         }
       } finally {
         if (active) {
@@ -51,6 +42,7 @@ export function useMarkets(t) {
   }, [t]);
 
   return {
+    symbols,
     markets,
     loading,
     error,

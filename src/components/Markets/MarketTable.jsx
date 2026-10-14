@@ -25,7 +25,7 @@ function MarketTable({ markets }) {
 
             return (
               <tr
-                key={coin.lastId}
+                key={coin.symbol}
                 className="border-b border-app-text/5 hover:bg-app-text/5"
               >
                 <td className="p-5">

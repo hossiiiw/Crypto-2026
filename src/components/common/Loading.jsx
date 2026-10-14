@@ -4,9 +4,8 @@ import { AppThemeContext } from "../../context/Theme/ThemeContext";
 
 function Loading() {
   const { theme } = useContext(AppThemeContext);
-  console.log(theme);
   return (
-    <div className="w-full h-[80vh] flex items-center justify-center">
+    <div className="w-full h-[50vh] flex items-center justify-center">
       {theme ? (
         <Atom color="#5a03d5" size="medium" text="" textColor="#502573" />
       ) : (
