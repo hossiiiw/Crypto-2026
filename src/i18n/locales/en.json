@@ -5,7 +5,8 @@
     "trade": "Trade",
     "support": "Support",
     "login": "Log in",
-    "get-started": "Get Started"
+    "get-started": "Get Started",
+    "dashboard": "Dashboard"
   },
   "profileHeader": {
     "wellcome": "Wellcome back",
@@ -29,7 +30,8 @@
     "markets": "Markets",
     "buy": "Buy",
     "login": "Login",
-    "support": "Suppor"
+    "support": "Suppor",
+    "dashboard": "Dashboard"
   },
   "landing": {
     "title1": "THE FUTURE OF DIGITAL ASSETS",
@@ -78,7 +80,8 @@
     "volume": "Volume",
     "high": "High",
     "low": "Low",
-    "trade": "Trade"
+    "trade": "Trade",
+    "error": "Retrieving market data failed."
   },
   "buy-crypto": {
     "btn-pro": "Pro Trading",

@@ -17,6 +17,9 @@ function Header() {
             <span className="text-app-text">Coinova</span>
           </Link>
           <nav className="hidden items-center gap-7 text-sm text-app-text-muted md:flex">
+            <Link className="hover:textapp-texte" to="/dashboard">
+              {t("header.dashboard")}
+            </Link>
             <Link className="hover:textapp-texte" to="/market">
               {t("header.market")}
             </Link>

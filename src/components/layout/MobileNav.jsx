@@ -7,7 +7,14 @@ function MobileNav() {
   return (
     <>
       <nav className="fixed bottom-0 left-0 right-0 z-[60] border-t border-app-text/10 bg-[#221B4D]/95 px-2 pb-[env(safe-area-inset-bottom)] pt-2 backdrop-blur-xl lg:hidden">
-        <div className="mx-auto grid max-w-lg grid-cols-5 gap-1">
+        <div className="mx-auto grid max-w-lg grid-cols-6 gap-1">
+          <Link
+            to="/"
+            className="flex flex-col items-center gap-1 rounded-xl py-2 text-[10px] text-app-text-muted"
+          >
+            <span className="text-lg">⌂</span>
+            {t("mobile-nav.dashboard")}
+          </Link>
           <Link
             to="/"
             className="flex flex-col items-center gap-1 rounded-xl py-2 text-[10px] text-app-text-muted"
