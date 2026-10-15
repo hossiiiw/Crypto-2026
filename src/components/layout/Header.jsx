@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { useContext } from "react";
+import { AppAuthContext } from "../../context/Auth/AuthContext";
 
 function Header() {
   const { t } = useTranslation();
+  const { login } = useContext(AppAuthContext);
   return (
     <>
       <header className="sticky top-0 z-50 border-b border-app-text/10 bg-app-background backdrop-blur">
@@ -17,9 +20,13 @@ function Header() {
             <span className="text-app-text">Coinova</span>
           </Link>
           <nav className="hidden items-center gap-7 text-sm text-app-text-muted md:flex">
-            <Link className="hover:textapp-texte" to="/dashboard">
-              {t("header.dashboard")}
-            </Link>
+            {login ? (
+              <Link className="hover:textapp-texte" to="/dashboard">
+                {t("header.dashboard")}
+              </Link>
+            ) : (
+              ""
+            )}
             <Link className="hover:textapp-texte" to="/market">
               {t("header.market")}
             </Link>
@@ -34,12 +41,14 @@ function Header() {
             </Link>
           </nav>
           <div className="flex items-center gap-2">
-            <Link
-              to="/login"
-              className="hidden rounded-xl px-4 py-2 text-sm text-app-text-muted hover:text-app-text sm:block"
-            >
-              {t("header.login")}
-            </Link>
+            {!login && (
+              <Link
+                to="/login"
+                className="hidden rounded-xl px-4 py-2 text-sm text-app-text-muted hover:text-app-text sm:block"
+              >
+                {t("header.login")}
+              </Link>
+            )}
             <Link
               to="/"
               className="rounded-xl bg-app-primary px-4 py-2 text-sm font-bold text-app-text hover:bg-app-primary-hover"

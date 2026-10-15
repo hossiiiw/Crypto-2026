@@ -16,6 +16,7 @@ import Profile from "../pages/Profile";
 import ProTrade from "../pages/ProTrade";
 import History from "../pages/History";
 import Dashboard from "../pages/Dashboard";
+import NotFound from "../pages/NotFound";
 
 function AppRoute() {
   return (
@@ -28,6 +29,7 @@ function AppRoute() {
           <Route path="/support" element={<Support />} />
           <Route path="/market" element={<Market />} />
           <Route path="/buy-crypto" element={<BuyCrypto />} />
+          <Route path="*" element={<NotFound />}  />
         </Route>
 
         <Route element={<ProtectedRoute />}>

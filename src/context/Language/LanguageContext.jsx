@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 export const AppLanguageContext = createContext(null);
@@ -9,7 +9,6 @@ function LanguageContext({ children }) {
   const languageHandler = (value) => {
     i18n.changeLanguage(value);
   };
-
   return (
     <>
       <AppLanguageContext.Provider value={{ languageHandler }}>

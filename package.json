@@ -16,6 +16,7 @@
     "lucide-react": "^1.53.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
+    "react-hook-form": "^7.90.0",
     "react-i18next": "^17.0.16",
     "react-loading-indicators": "^1.0.1",
     "react-router-dom": "^7.18.4",

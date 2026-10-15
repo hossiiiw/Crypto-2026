@@ -1,9 +1,13 @@
 import { useTranslation } from "react-i18next";
 import ProfileHeader from "../components/layout/ProfileHeader";
 import Sidebar from "../components/layout/Sidebar";
+import InputUi from "../components/common/InputUi";
+import { useContext } from "react";
+import { AppAuthContext } from "../context/Auth/AuthContext";
 
 function Profile() {
   const { t } = useTranslation();
+  const { currentUser } = useContext(AppAuthContext);
   return (
     <>
       <div className="flex">
@@ -22,8 +26,12 @@ function Profile() {
                 <div className="mx-auto grid h-24 w-24 place-items-center rounded-full bg-app-primary/20 text-3xl font-black text-app-primary">
                   AM
                 </div>
-                <h2 className="mt-4 text-xl font-bold">Alex Morgan</h2>
-                <p className="text-sm text-app-text-muted">alex@example.com</p>
+                <h2 className="mt-4 text-xl font-bold">
+                  {currentUser?.firstName} {currentUser?.lastName}
+                </h2>
+                <p className="text-sm text-app-text-muted">
+                  {currentUser?.email}
+                </p>
                 <span className="mt-4 inline-block rounded-full bg-app-success/10 px-3 py-1 text-xs text-app-success">
                   {t("profile.verified")}
                 </span>
@@ -33,31 +41,19 @@ function Profile() {
                 <div className="mt-5 grid gap-4 md:grid-cols-2">
                   <label className="text-sm text-app-text-muted">
                     {t("profile.label-1")}
-                    <input
-                      className="mt-2 w-full rounded-xl border border-app-text/10 bg-app-input p-3 text-app-text-muted outline-none focus:border-app-primary"
-                      // value="Alex"
-                    />
+                    <InputUi value={currentUser?.firstName} />
                   </label>
                   <label className="text-sm text-app-text-muted">
                     {t("profile.label-2")}
-                    <input
-                      className="mt-2 w-full rounded-xl border border-app-text/10 bg-app-input p-3 text-app-text-muted outline-none focus:border-app-primary"
-                      // value="Morgan"
-                    />
+                    <InputUi value={currentUser?.lastName} />
                   </label>
                   <label className="text-sm text-app-text-muted">
                     {t("profile.label-3")}
-                    <input
-                      className="mt-2 w-full rounded-xl border border-app-text/10 bg-app-input p-3 text-app-text-muted outline-none focus:border-app-primary"
-                      // value="alex@example.com"
-                    />
+                    <InputUi value={currentUser?.email} />
                   </label>
                   <label className="text-sm text-app-text-muted">
                     {t("profile.label-4")}
-                    <input
-                      className="mt-2 w-full rounded-xl border border-app-text/10 bg-app-input p-3 text-app-text-muted outline-none focus:border-app-primary"
-                      // value="+1 555 123 4567"
-                    />
+                    <InputUi value={currentUser?.number} />
                   </label>
                 </div>
                 <button className="mt-6 rounded-xl bg-app-primary px-5 py-3 font-bold">

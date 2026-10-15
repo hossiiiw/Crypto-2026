@@ -6,15 +6,18 @@ import { BrowserRouter } from "react-router-dom";
 import ThemeContext from "./context/Theme/ThemeContext.jsx";
 import "./i18n";
 import LanguageContext from "./context/Language/LanguageContext.jsx";
+import AuthContext from "./context/Auth/AuthContext.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <LanguageContext>
-      <ThemeContext>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
-      </ThemeContext>
-    </LanguageContext>
+    <AuthContext>
+      <LanguageContext>
+        <ThemeContext>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </ThemeContext>
+      </LanguageContext>
+    </AuthContext>
   </StrictMode>,
 );

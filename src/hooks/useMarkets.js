@@ -13,7 +13,7 @@ export function useMarkets(t) {
 
     const fetchMarkets = async () => {
       try {
-        const data = await getMarkets(symbols);
+        const data = await getMarkets();
 
         if (active) {
           setMarkets(data);

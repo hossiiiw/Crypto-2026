@@ -4,10 +4,12 @@ import ProfileHeader from "../components/layout/ProfileHeader";
 import { AppThemeContext } from "../context/Theme/ThemeContext";
 import { AppLanguageContext } from "../context/Language/LanguageContext";
 import { useTranslation } from "react-i18next";
+import { AppAuthContext } from "../context/Auth/AuthContext";
 
 function Setting() {
   const { theme, handleTheme } = useContext(AppThemeContext);
-  const { language, languageHandler } = useContext(AppLanguageContext);
+  const { languageHandler } = useContext(AppLanguageContext);
+  const { logoutHandler } = useContext(AppAuthContext);
   const { t } = useTranslation();
   return (
     <>
@@ -99,8 +101,8 @@ function Setting() {
                 <p className="mt-2 text-sm text-app-text-muted">
                   {t("setting.title-6")}
                 </p>
-                <button className="mt-4 rounded-xl border border-danger/30 px-4 py-2 text-sm text-app-danger cursor-pointer">
-                  {t("setting.delete")}
+                <button onClick={logoutHandler} className="mt-4 rounded-xl border border-danger/30 px-4 py-2 text-sm text-app-danger cursor-pointer">
+                  {t("setting.logout")}
                 </button>
               </section>
             </div>

@@ -180,8 +180,8 @@
     "login": "Login notifications",
     "title-5": "Receive alerts when a new device signs in.",
     "danger": "Danger Zone",
-    "title-6": "Deleting your account is permanent and cannot be undone.",
-    "delete": "Delete Account"
+    "title-6": "Are you sure you want to log out of your account?",
+    "logout": "Log Out"
   },
   "login": {
     "wellcome": "Wellcome back",
@@ -193,7 +193,11 @@
     "or": "OR",
     "google": "Continue with Google",
     "title-1": "Don’t have an account?",
-    "title-3": "Create one"
+    "title-3": "Create one",
+    "email-m": "Email is required",
+    "pass-re": "Password is required",
+    "pass-min": "Password must be at least 8 characters long",
+    "pass-pattern": "Password must contain at least one uppercase letter, one number, and one special character"
   },
   "register": {
     "title-1": "Create your account",
