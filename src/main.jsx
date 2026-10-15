@@ -1,4 +1,3 @@
-import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.jsx";
@@ -9,15 +8,13 @@ import LanguageContext from "./context/Language/LanguageContext.jsx";
 import AuthContext from "./context/Auth/AuthContext.jsx";
 
 createRoot(document.getElementById("root")).render(
-  <StrictMode>
-    <AuthContext>
-      <LanguageContext>
-        <ThemeContext>
-          <BrowserRouter>
-            <App />
-          </BrowserRouter>
-        </ThemeContext>
-      </LanguageContext>
-    </AuthContext>
-  </StrictMode>,
+  <AuthContext>
+    <LanguageContext>
+      <ThemeContext>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </ThemeContext>
+    </LanguageContext>
+  </AuthContext>,
 );
