@@ -49,12 +49,14 @@ function Header() {
                 {t("header.login")}
               </Link>
             )}
-            <Link
-              to="/"
-              className="rounded-xl bg-app-primary px-4 py-2 text-sm font-bold text-app-text hover:bg-app-primary-hover"
-            >
-              {t("header.get-started")}
-            </Link>
+            {!login && (
+              <Link
+                to="/register"
+                className="rounded-xl bg-app-primary px-4 py-2 text-sm font-bold text-app-text hover:bg-app-primary-hover"
+              >
+                {t("header.get-started")}
+              </Link>
+            )}
           </div>
         </div>
       </header>

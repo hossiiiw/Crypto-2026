@@ -201,8 +201,10 @@
   "register": {
     "title-1": "حساب کاربری خود را ایجاد کنید",
     "title-2": "دسترسی امن به حساب کوینووا",
-    "input-name": "نام و نام خانوادگی",
-    "input-email": "آدرس ایمیل",
+    "input-firstname": "نام",
+    "input-lastname": "نام خانوادگی",
+    "input-email": "ادرس ایمیل ",
+    "input-phone": "شماره تلفن ",
     "input-pass": "رمز عبور",
     "create": "ایجاد حساب کاربری",
     "or": "یا",

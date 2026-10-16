@@ -23,11 +23,12 @@ function Profile() {
             </div>
             <div className="mt-7 grid gap-6 lg:grid-cols-3">
               <div className="rounded-2xl border border-app-text/10 bg-app-surface p-6 text-center">
-                <div className="mx-auto grid h-24 w-24 place-items-center rounded-full bg-app-primary/20 text-3xl font-black text-app-primary">
-                  AM
+                <div className="mx-auto flex items-center justify-center h-24 w-24 place-items-center rounded-full bg-app-primary/20 text-3xl font-black text-app-primary capitalize">
+                  <span> {currentUser?.firstname.charAt(0)}</span>
+                  <span>{currentUser?.lastname.charAt(0)}</span>
                 </div>
-                <h2 className="mt-4 text-xl font-bold">
-                  {currentUser?.firstName} {currentUser?.lastName}
+                <h2 className="mt-4 text-xl font-bold capitalize">
+                  {currentUser?.firstname} {currentUser?.lastname}
                 </h2>
                 <p className="text-sm text-app-text-muted">
                   {currentUser?.email}
@@ -41,15 +42,18 @@ function Profile() {
                 <div className="mt-5 grid gap-4 md:grid-cols-2">
                   <label className="text-sm text-app-text-muted">
                     {t("profile.label-1")}
-                    <InputUi value={currentUser?.firstName} />
+                    <InputUi value={currentUser?.firstname} />
                   </label>
                   <label className="text-sm text-app-text-muted">
                     {t("profile.label-2")}
-                    <InputUi value={currentUser?.lastName} />
+                    <InputUi value={currentUser?.lastname} />
                   </label>
                   <label className="text-sm text-app-text-muted">
                     {t("profile.label-3")}
-                    <InputUi value={currentUser?.email} />
+                    <input
+                      className="mt-2 w-full rounded-xl border border-app-text/10 bg-app-input p-3 text-app-text-muted outline-none focus:border-app-primary "
+                      value={currentUser.email}
+                    />
                   </label>
                   <label className="text-sm text-app-text-muted">
                     {t("profile.label-4")}

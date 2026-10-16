@@ -1,4 +1,4 @@
-import  { useContext } from "react";
+import { useContext } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { AppAuthContext } from "../../context/Auth/AuthContext";
@@ -12,7 +12,7 @@ function MobileNav() {
         <div className="mx-auto grid max-w-lg grid-cols-5 gap-1">
           {login && (
             <Link
-              to="/"
+              to="/dashboard"
               className="flex flex-col items-center gap-1 rounded-xl py-2 text-[10px] text-app-text-muted"
             >
               <span className="text-lg">⌂</span>

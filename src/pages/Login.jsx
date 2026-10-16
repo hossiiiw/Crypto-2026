@@ -23,7 +23,7 @@ function Login() {
 
   const onSubmitForm = (data) => {
     const result = getUserInfo(data.email, data.password);
-
+    console.log(result);
     if (result.success) {
       // console.log("ورود موفق بود", result.user);
       navigate("/dashboard");

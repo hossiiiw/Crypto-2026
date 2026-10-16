@@ -202,8 +202,10 @@
   "register": {
     "title-1": "Create your account",
     "title-2": "Secure access to your Coinova account",
-    "input-name": "Full name",
+    "input-firstname": "First name",
+    "input-lastname": "Last name",
     "input-email": "Email address",
+    "input-phone": "phone number",
     "input-pass": "Password",
     "create": "Create Account",
     "or": "OR",
