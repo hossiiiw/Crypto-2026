@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { AppAuthContext } from "../../context/Auth/AuthContext";
 
 function MobileNav() {
@@ -8,54 +8,90 @@ function MobileNav() {
   const { login } = useContext(AppAuthContext);
   return (
     <>
-      <nav className="fixed bottom-0 left-0 right-0 z-[60] border-t border-app-text/10 bg-[#221B4D]/95 px-2 pb-[env(safe-area-inset-bottom)] pt-2 backdrop-blur-xl lg:hidden">
-        <div className="mx-auto grid max-w-lg grid-cols-5 gap-1">
+      <nav className="fixed bottom-0 left-0 right-0 z-[60] border-t border-app-text/10 bg-[#221B4D]/95 px-2  pb-[env(safe-area-inset-bottom)] pt-2 backdrop-blur-xl lg:hidden">
+        <div className="mx-auto grid max-w-lg grid-cols-5 gap-1 py-2">
           {login && (
-            <Link
+            <NavLink
               to="/dashboard"
-              className="flex flex-col items-center gap-1 rounded-xl py-2 text-[10px] text-app-text-muted"
+              className={({ isActive, isPending }) =>
+                isPending
+                  ? ""
+                  : isActive
+                    ? "flex flex-col items-center gap-1 rounded-xl bg-app-primary/20 py-2 text-[10px] font-bold text-app-primary"
+                    : "flex flex-col items-center gap-1 rounded-xl py-2 text-[10px] text-app-text-muted"
+              }
             >
               <span className="text-lg">⌂</span>
               {t("mobile-nav.dashboard")}
-            </Link>
+            </NavLink>
           )}
-          <Link
+          <NavLink
             to="/"
-            className="flex flex-col items-center gap-1 rounded-xl py-2 text-[10px] text-app-text-muted"
+            className={({ isActive, isPending }) =>
+              isPending
+                ? ""
+                : isActive
+                  ? "flex flex-col items-center gap-1 rounded-xl bg-app-primary/20 py-2 text-[10px] font-bold text-app-primary"
+                  : "flex flex-col items-center gap-1 rounded-xl py-2 text-[10px] text-app-text-muted"
+            }
           >
             <span className="text-lg">⌂</span>
             {t("mobile-nav.home")}
-          </Link>
-          <Link
+          </NavLink>
+          <NavLink
             to="/market"
-            className="flex flex-col items-center gap-1 rounded-xl py-2 text-[10px] text-app-text-muted"
+            className={({ isActive, isPending }) =>
+              isPending
+                ? ""
+                : isActive
+                  ? "flex flex-col items-center gap-1 rounded-xl bg-app-primary/20 py-2 text-[10px] font-bold text-app-primary"
+                  : "flex flex-col items-center gap-1 rounded-xl py-2 text-[10px] text-app-text-muted"
+            }
           >
             <span className="text-lg">◈</span>
             {t("mobile-nav.markets")}
-          </Link>
-          <Link
+          </NavLink>
+          <NavLink
             to="/buy-crypto"
-            className="flex flex-col items-center gap-1 rounded-xl bg-app-primary/20 py-2 text-[10px] font-bold text-app-primary"
+            className={({ isActive, isPending }) =>
+              isPending
+                ? ""
+                : isActive
+                  ? "flex flex-col items-center gap-1 rounded-xl bg-app-primary/20 py-2 text-[10px] font-bold text-app-primary"
+                  : "flex flex-col items-center gap-1 rounded-xl py-2 text-[10px] text-app-text-muted"
+            }
           >
             <span className="text-lg">＋</span>
             {t("mobile-nav.buy")}
-          </Link>
+          </NavLink>
           {!login && (
-            <Link
+            <NavLink
               to="/login"
-              className="flex flex-col items-center gap-1 rounded-xl py-2 text-[10px] text-app-text-muted"
+              className={({ isActive, isPending }) =>
+                isPending
+                  ? ""
+                  : isActive
+                    ? "flex flex-col items-center gap-1 rounded-xl bg-app-primary/20 py-2 text-[10px] font-bold text-app-primary"
+                    : "flex flex-col items-center gap-1 rounded-xl py-2 text-[10px] text-app-text-muted"
+              }
             >
               <span className="text-lg">⇥</span>
               {t("mobile-nav.login")}
-            </Link>
+            </NavLink>
           )}
-          <Link
+          <NavLink
             to="/support"
-            className="flex flex-col items-center gap-1 rounded-xl py-2 text-[10px] text-app-text-muted"
+            className={({ isActive, isPending }) =>
+              isPending
+                ? ""
+                : isActive
+                  ? "flex flex-col items-center gap-1 rounded-xl bg-app-primary/20 py-2 text-[10px] font-bold text-app-primary"
+                  : "flex flex-col items-center gap-1 rounded-xl py-2 text-[10px] text-app-text-muted"
+            }
           >
             <span className="text-lg">?</span>
             {t("mobile-nav.support")}
-          </Link>
+          </NavLink>
         </div>
       </nav>
     </>

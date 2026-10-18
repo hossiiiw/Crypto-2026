@@ -23,6 +23,7 @@ function Register() {
   const registerFormHandler = (data) => {
     // console.log(userInfo);
     registerHandler(data);
+    navigate("/login");
     reset();
   };
 
