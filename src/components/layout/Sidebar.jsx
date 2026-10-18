@@ -142,7 +142,7 @@ function Sidebar() {
       </aside>
       {/* --------------------mobile menu---------------------------- */}
 
-      <div className="relative">
+      <div className="relative md:hidden">
         {/* دکمه همبرگری */}
         <button
           onClick={() => setIsOpen(!isOpen)}
