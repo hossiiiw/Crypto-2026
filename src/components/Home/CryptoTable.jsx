@@ -1,11 +1,12 @@
-import React from "react";
+
 import { useTranslation } from "react-i18next";
 import useLandingMarket from "../../hooks/useLandingMarket";
 import Loading from "../common/Loading";
+import CryptoChart from "../Chart/CryptoChart";
 
 function CryptoTable() {
   const { t } = useTranslation();
-  const { market, loading, error } = useLandingMarket("BTCUSDT");
+  const { market, loading } = useLandingMarket("BTCUSDT");
   const priceChangeIsPositive = market?.changePercent > 0;
   return (
     <>
@@ -34,7 +35,9 @@ function CryptoTable() {
              {market?.changePercent}%
             </span>
           </div>
-          <div className="mt-8 flex h-[35.5vh] items-end gap-2"></div>
+          <div className="mt-8 flex h-[35.5vh] items-end gap-2">
+            <CryptoChart />
+          </div>
           <div className="mt-5 grid grid-cols-3 gap-3 text-center text-xs text-app-text-muted">
             <span>
               24H {t("landing.high")}

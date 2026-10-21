@@ -1,6 +1,6 @@
-import React from "react";
 import { useTranslation } from "react-i18next";
 import { formatPrice } from "../../utils/FormatPrice";
+import { Link } from "react-router-dom";
 
 function MarketTable({ markets }) {
   const { t } = useTranslation();
@@ -45,12 +45,12 @@ function MarketTable({ markets }) {
                 <td>${formatPrice(coin.lowPrice)}</td>
                 <td>${formatPrice(coin.volume)}</td>
                 <td>
-                  <a
-                    href="trade.html"
+                  <Link
+                    to={`/market/${coin.symbol}`}
                     className="rounded-lg bg-app-primary/15 px-3 py-2 text-app-primary"
                   >
                     {t("markets.trade")}
-                  </a>
+                  </Link>
                 </td>
               </tr>
             );

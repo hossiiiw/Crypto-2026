@@ -1,4 +1,3 @@
-import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Landing from "../pages/Landing";
 import Login from "../pages/Login";
@@ -7,7 +6,6 @@ import Market from "../pages/Market";
 import BuyCrypto from "../pages/BuyCrypto";
 import Register from "../pages/Register";
 import Wallet from "../pages/Wallet";
-import Header from "../components/layout/Header";
 import PublicRoute from "./PublicRoute";
 import ProtectedRoute from "./ProtectedRoute";
 import EasyTrade from "../pages/EasyTrade";
@@ -17,6 +15,7 @@ import ProTrade from "../pages/ProTrade";
 import History from "../pages/History";
 import Dashboard from "../pages/Dashboard";
 import NotFound from "../pages/NotFound";
+import DynamicMarket from "../components/Markets/DynamicMarket";
 
 function AppRoute() {
   return (
@@ -28,8 +27,9 @@ function AppRoute() {
           <Route path="/register" element={<Register />} />
           <Route path="/support" element={<Support />} />
           <Route path="/market" element={<Market />} />
+          <Route path="/market/:symbol" element={<DynamicMarket />} />
           <Route path="/buy-crypto" element={<BuyCrypto />} />
-          <Route path="*" element={<NotFound />}  />
+          <Route path="*" element={<NotFound />} />
         </Route>
 
         <Route element={<ProtectedRoute />}>
