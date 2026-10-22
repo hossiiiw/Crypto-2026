@@ -1,33 +1,42 @@
-import { useParams } from "react-router-dom";
+
 import CryptoChart from "../Chart/CryptoChart";
-import useLandingMarket from "../../hooks/useLandingMarket";
-import { useState } from "react";
+import MarketHeader from "./dynamicMarketCom/MarketHeader";
+import MarketHistory from "./dynamicMarketCom/MarketHistory";
+import MarketOpenOrder from "./dynamicMarketCom/MarketOpenOrder";
+import MarketOverview from "./dynamicMarketCom/MarketOverview";
+import OrderBook from "./dynamicMarketCom/OrderBook";
+import TradeForm from "./dynamicMarketCom/TradeForm";
 
 const DynamicMarket = () => {
-  const { symbol } = useParams();
-  const { market } = useLandingMarket(symbol);
-  const [interval, setInterval] = useState("1m");
-
-  console.log(market);
-
   return (
-    <div className="h-[400px]">
-      <CryptoChart symbol={symbol} interval={interval} />
-      <p className="text-app-text text-2xl">{market?.symbol}</p>
-      <p className="text-app-text text-2xl">{market?.price}</p>
+    <>
+      <main className="min-h-screen bg-app-background p-3 text-app-text sm:p-5 lg:p-6">
+        <div className="mx-auto max-w-[1600px] space-y-5">
+          {/* Page Header */}
+          <MarketHeader />
 
-      <select
-        className="text-app-text text-2xl"
-        name=""
-        id=""
-        value={interval}
-        onChange={(e) => setInterval(e.target.value)}
-      >
-        <option value="1m">1m</option>
-        <option value="5m">5m</option>
-        <option value="1h">1h</option>
-      </select>
-    </div>
+          {/* Market Overview */}
+          <MarketOverview />
+
+          {/* Main Trading Area */}
+          <section className="w-full flex flex-col gap-2 items-center justify-between">
+            {/*  */}
+            <div className="w-full flex flex-wrap gap-2 items-center justify-between">
+              <div className="w-[48%] h-[57.2vh]">
+                <CryptoChart />
+              </div>
+              <OrderBook />
+              <div className="w-[48%] flex flex-col gap-16">
+                <MarketHistory />
+                <MarketOpenOrder />
+              </div>
+              <TradeForm />
+            </div>
+            {/*  */}
+          </section>
+        </div>
+      </main>
+    </>
   );
 };
 
