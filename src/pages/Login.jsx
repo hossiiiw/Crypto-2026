@@ -25,8 +25,6 @@ function Login() {
     const result = getUserInfo(data.email, data.password);
     console.log(result);
     if (result.success) {
-      // console.log("ورود موفق بود", result.user);
-      navigate("/dashboard");
       reset();
     } else {
       console.log(result.message);
@@ -34,11 +32,16 @@ function Login() {
   };
 
   useEffect(() => {
-    const lang = localStorage.getItem("language");
+    const lang = localStorage.getItem("language") || "en";
     setLanguage(lang);
-  }, [language]);
+  }, []);
 
-  login && navigate("/dashboard");
+  useEffect(() => {
+    if (login) {
+      navigate("/dashboard", { replace: true });
+    }
+  }, [login, navigate]);
+
   return (
     <>
       <main className="grid min-h-[calc(99vh-64px)] place-items-center px-4 py-12">

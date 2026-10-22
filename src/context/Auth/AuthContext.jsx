@@ -1,5 +1,4 @@
 import { createContext, useEffect, useState } from "react";
-import {  Navigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 
 export const AppAuthContext = createContext(null);
@@ -12,7 +11,6 @@ function AuthContext({ children }) {
   const [userData, setUserData] = useState(
     JSON.parse(localStorage.getItem("userData")) || [],
   );
-
   // -------------------new user-------------------
   const [newUser, setNewUser] = useState(() => {
     try {
@@ -53,8 +51,9 @@ function AuthContext({ children }) {
     localStorage.setItem("login", false);
     setLogin(false);
     setCurrentUser(null);
-    Navigate("/");
+    // Navigate("/");
   };
+
   // -------------------logout----------------------
 
   //----------------------register handler---------------
@@ -70,13 +69,21 @@ function AuthContext({ children }) {
 
   //----------------------register handler---------------
 
+  // -------------------update profile ---------------------
+  const updateUser = (updatedData) => {
+    setCurrentUser((prevUser) => ({
+      ...prevUser,
+      ...updatedData,
+    }));
+  };
+  
+  // -------------------update profile ---------------------
+
   useEffect(() => {
     localStorage.setItem("login", login);
     localStorage.setItem("user", JSON.stringify(currentUser));
     localStorage.setItem("userData", JSON.stringify(newUser));
   }, [login, currentUser, newUser]);
-
-
 
   return (
     <AppAuthContext.Provider
@@ -86,6 +93,7 @@ function AuthContext({ children }) {
         getUserInfo,
         logoutHandler,
         registerHandler,
+        updateUser,
       }}
     >
       {children}

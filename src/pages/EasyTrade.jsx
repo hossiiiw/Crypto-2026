@@ -1,4 +1,3 @@
-import React from "react";
 import Sidebar from "../components/layout/Sidebar";
 import ProfileHeader from "../components/layout/ProfileHeader";
 import { Link } from "react-router-dom";
@@ -54,12 +53,12 @@ function EasyTrade() {
                 </div>
                 <div className="flex items-center justify-between rounded-xl border border-app-text/10 bg-app-input p-4">
                   <div>
-                    <p className="text-xs text-app-text-muted">
+                    <span className="text-xs text-app-text-muted">
                       {" "}
                       <p className="text-xs text-app-text-muted">
                         {t("easy-trade.receive")}
                       </p>
-                    </p>
+                    </span>
                     <b className="text-2xl">0.0147</b>
                   </div>
                   <b>BTC ▾</b>

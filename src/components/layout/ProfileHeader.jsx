@@ -5,7 +5,6 @@ import { AppAuthContext } from "../../context/Auth/AuthContext";
 function ProfileHeader() {
   const { t } = useTranslation();
   const { currentUser } = useContext(AppAuthContext);
-  console.log(currentUser)
   return (
     <>
       <header className="flex h-16 text-app-text items-center justify-between border-b border-app-text/10 bg-bg/80 px-4 backdrop-blur md:px-6">

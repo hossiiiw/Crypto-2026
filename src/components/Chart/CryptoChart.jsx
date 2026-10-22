@@ -1,17 +1,10 @@
-
 import { useEffect, useRef, useState } from "react";
-import {
-  createChart,
-  CandlestickSeries,
-} from "lightweight-charts";
+import { createChart, CandlestickSeries } from "lightweight-charts";
 
 const API_URL = "https://data-api.binance.vision/api/v3/klines";
 const WS_URL = "wss://data-stream.binance.vision/ws";
 
-export default function CryptoChart({
-  symbol = "BTCUSDT",
-  interval = "1m",
-}) {
+export default function CryptoChart({ symbol = "BTCUSDT", interval = "1m" }) {
   const containerRef = useRef(null);
   const [status, setStatus] = useState("در حال اتصال...");
 
@@ -74,7 +67,7 @@ export default function CryptoChart({
 
       try {
         const response = await fetch(
-          `${API_URL}?symbol=${symbol}&interval=${interval}&limit=1000`
+          `${API_URL}?symbol=${symbol}&interval=${interval}&limit=1000`,
         );
 
         if (!response.ok) {
@@ -97,7 +90,7 @@ export default function CryptoChart({
         chart.timeScale().fitContent();
 
         socket = new WebSocket(
-          `${WS_URL}/${symbol.toLowerCase()}@kline_${interval}`
+          `${WS_URL}/${symbol.toLowerCase()}@kline_${interval}`,
         );
 
         socket.onopen = () => {
@@ -136,38 +129,44 @@ export default function CryptoChart({
 
     return () => {
       cancelled = true;
-      resizeObserver?.disconnect();
-      socket?.close();
-      chart?.remove();
+
+  resizeObserver?.disconnect();
+
+  if (socket) {
+    socket.onopen = null;
+    socket.onmessage = null;
+    socket.onerror = null;
+    socket.onclose = null;
+
+    if (
+      socket.readyState === WebSocket.OPEN ||
+      socket.readyState === WebSocket.CONNECTING
+    ) {
+      socket.close();
+    }
+  }
+
+  chart?.remove();
     };
   }, [symbol, interval]);
 
   return (
     <div className="flex h-full min-h-0 w-full min-w-0 flex-col overflow-hidden rounded-xl border border-gray-800 bg-gray-900">
       <div className="flex shrink-0 items-center gap-3 border-b border-gray-800 px-4 py-3">
-        <span className="font-semibold text-white">
-          {symbol}
-        </span>
+        <span className="font-semibold text-white">{symbol}</span>
 
-        <span className="text-sm text-gray-400">
-          {interval}
-        </span>
+        <span className="text-sm text-gray-400">{interval}</span>
 
         <span
           className={`ml-auto text-xs ${
-            status === "متصل"
-              ? "text-green-400"
-              : "text-gray-400"
+            status === "متصل" ? "text-green-400" : "text-gray-400"
           }`}
         >
           {status}
         </span>
       </div>
 
-      <div
-        ref={containerRef}
-        className="min-h-0 min-w-0 flex-1"
-      />
+      <div ref={containerRef} className="min-h-0 min-w-0 flex-1" />
     </div>
   );
 }

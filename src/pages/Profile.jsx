@@ -2,12 +2,48 @@ import { useTranslation } from "react-i18next";
 import ProfileHeader from "../components/layout/ProfileHeader";
 import Sidebar from "../components/layout/Sidebar";
 import InputUi from "../components/common/InputUi";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AppAuthContext } from "../context/Auth/AuthContext";
+import { useForm } from "react-hook-form";
 
 function Profile() {
   const { t } = useTranslation();
-  const { currentUser } = useContext(AppAuthContext);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+  } = useForm();
+  const { currentUser, updateUser } = useContext(AppAuthContext);
+  const [formData, setFormData] = useState({
+    firstname: "",
+    lastname: "",
+    email: "",
+    number: "",
+  });
+
+  useEffect(() => {
+    if (currentUser) {
+      setFormData({
+        firstname: currentUser.firstname ?? "",
+        lastname: currentUser.lastname ?? "",
+        email: currentUser.email ?? "",
+        number: currentUser.number ?? "",
+      });
+    }
+  }, [currentUser]);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSave = () => {
+    updateUser(formData);
+  };
   return (
     <>
       <div className="flex">
@@ -37,33 +73,54 @@ function Profile() {
                   {t("profile.verified")}
                 </span>
               </div>
-              <div className="rounded-2xl border border-app-text/10 bg-app-surface p-6 lg:col-span-2">
+              <form
+                onSubmit={handleSubmit(handleSave)}
+                className="rounded-2xl border border-app-text/10 bg-app-surface p-6 lg:col-span-2"
+              >
                 <h3 className="font-bold">{t("profile.title-1")}</h3>
                 <div className="mt-5 grid gap-4 md:grid-cols-2">
                   <label className="text-sm text-app-text-muted">
                     {t("profile.label-1")}
-                    <InputUi value={currentUser?.firstname} />
+
+                    <InputUi
+                      value={formData?.firstname}
+                      name="firstname"
+                      func={handleChange}
+                    />
                   </label>
                   <label className="text-sm text-app-text-muted">
                     {t("profile.label-2")}
-                    <InputUi value={currentUser?.lastname} />
+                    <InputUi
+                      value={formData?.lastname}
+                      name="lastname"
+                      func={handleChange}
+                    />
                   </label>
                   <label className="text-sm text-app-text-muted">
                     {t("profile.label-3")}
                     <input
                       className="mt-2 w-full rounded-xl border border-app-text/10 bg-app-input p-3 text-app-text-muted outline-none focus:border-app-primary "
-                      value={currentUser.email}
+                      value={formData.email}
+                      name="email"
+                      onChange={handleChange}
                     />
                   </label>
                   <label className="text-sm text-app-text-muted">
                     {t("profile.label-4")}
-                    <InputUi value={currentUser?.number} />
+                    <InputUi
+                      value={formData?.number}
+                      func={handleChange}
+                      name="number"
+                    />
                   </label>
                 </div>
-                <button className="mt-6 rounded-xl bg-app-primary px-5 py-3 font-bold">
+                <button
+                  onClick={handleSave}
+                  className="mt-6 rounded-xl bg-app-primary px-5 py-3 font-bold"
+                >
                   {t("profile.save")}
                 </button>
-              </div>
+              </form>
             </div>
           </div>
         </main>
