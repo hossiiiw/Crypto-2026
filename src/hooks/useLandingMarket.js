@@ -27,7 +27,7 @@ function useLandingMarket(symbol) {
       active = false;
       clearInterval(intervalId);
     };
-  }, []);
+  }, [symbol]);
 
   return {
     market,
