@@ -212,5 +212,85 @@
     "google": "Continue with Google",
     "title-3": "Already have an account??",
     "title-4": "Log in"
+  },
+
+  "market-stats": {
+    "total-market-cap": "Total Market Cap",
+    "volume-24h": "24h Trading Volume",
+    "bitcoin": "Bitcoin",
+    "account-balance": "Account Balance",
+    "change-24h": "+2.45% in 24 hours",
+    "change-vs-yesterday": "+8.21% vs. yesterday",
+    "available-balance": "Available Balance"
+  },
+  "trade-page": {
+    "home": "Market",
+    "easy-trade": "Easy Trade",
+    "title": "Cryptocurrency Trading",
+    "description": "Explore the market and manage your trades.",
+    "market-status": "Market Status",
+    "market-active": "Market Open"
+  },
+  "chart": {
+    "connecting": " Connecting ",
+    "connected": "Connected",
+    "error": "Connection error",
+    "lost": "Connection lost",
+    "information": "Error retrieving information"
+  },
+  "order-book": {
+    "title": "Order Book",
+    "pair": "BTC ",
+    "price": "Price ",
+    "amount": "Amount",
+    "total": "Total",
+    "current-price": "Current Price"
+  },
+  "market-history": {
+    "title": "Trade History",
+    "subtitle": "Recent account activity",
+    "view-all": "View All →",
+    "coin": "Coin",
+    "type": "Type",
+    "price": "Price",
+    "time": "Time",
+    "buy": "Buy",
+    "sell": "Sell"
+  },
+  "market-open-order": {
+    "title": "My Orders",
+    "subtitle": "Manage active orders",
+    "all": "All",
+    "buy": "Buy",
+    "sell": "Sell",
+    "pair": "Trading Pair",
+    "type": "Type",
+    "price": "Price",
+    "amount": "Amount",
+    "status": "Status",
+    "actions": "Actions",
+    "pending": "Pending",
+    "completed": "Completed",
+    "cancel": "Cancel"
+  },
+  "trade-form": {
+    "title": "Place Order",
+    "pair": "BTC / USDT",
+    "buy": "Buy",
+    "sell": "Sell",
+    "limit": "Limit",
+    "market": "Market",
+    "unit-price": "Price per Unit",
+    "coin-amount": "Coin Amount",
+    "total-amount": "Total Amount",
+    "available-balance": "Available Balance",
+    "estimated-fee": "Estimated Fee",
+    "percent-25": "25%",
+    "percent-50": "50%",
+    "percent-75": "75%",
+    "percent-100": "100%",
+    "submit-buy": "Buy {{coin}}",
+    "submit-sell": "Sell {{coin}}",
+    "disclaimer": "Please check the trade amount and price before placing your order."
   }
 }

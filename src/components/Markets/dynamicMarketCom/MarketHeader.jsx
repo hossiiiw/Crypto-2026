@@ -1,17 +1,25 @@
+import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
+
 function MarketHeader() {
+  const { t } = useTranslation();
+
   return (
     <div className="flex flex-wrap items-center justify-between gap-4">
       <div>
         <div className="mb-2 flex items-center gap-2 text-sm text-app-text-muted">
-          <span>خانه</span>
+          <Link to={-1}>{t("trade-page.home")}</Link>
           <span>/</span>
-          <span className="text-app-primary">معامله آسان</span>
+          <span className="text-app-primary">
+            {" "}
+            {t("trade-page.easy-trade")}
+          </span>
         </div>
         <h1 className="text-2xl font-black tracking-tight sm:text-3xl">
-          معامله ارز دیجیتال
+          {t("trade-page.title")}
         </h1>
         <p className="mt-2 text-sm text-app-text-muted">
-          بازار رو بررسی کن و معاملاتت رو مدیریت کن.
+          {t("trade-page.description")}
         </p>
       </div>
 
@@ -21,8 +29,12 @@ function MarketHeader() {
           <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-500" />
         </span>
         <div>
-          <p className="text-xs text-app-text-muted">وضعیت بازار</p>
-          <p className="mt-1 text-sm font-bold text-emerald-500">بازار فعال</p>
+          <p className="text-xs text-app-text-muted">
+            {t("trade-page.market-status")}{" "}
+          </p>
+          <p className="mt-1 text-sm font-bold text-emerald-500">
+            {t("trade-page.market-active")}{" "}
+          </p>
         </div>
       </div>
     </div>

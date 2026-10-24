@@ -1,12 +1,14 @@
 import { useEffect, useRef, useState } from "react";
 import { createChart, CandlestickSeries } from "lightweight-charts";
+import { useTranslation } from "react-i18next";
 
 const API_URL = "https://data-api.binance.vision/api/v3/klines";
 const WS_URL = "wss://data-stream.binance.vision/ws";
 
 export default function CryptoChart({ symbol = "BTCUSDT", interval = "1m" }) {
+  const { t } = useTranslation();
   const containerRef = useRef(null);
-  const [status, setStatus] = useState("در حال اتصال...");
+  const [status, setStatus] = useState(t("chart.connecting"));
 
   useEffect(() => {
     const container = containerRef.current;
@@ -94,7 +96,7 @@ export default function CryptoChart({ symbol = "BTCUSDT", interval = "1m" }) {
         );
 
         socket.onopen = () => {
-          if (!cancelled) setStatus("متصل");
+          if (!cancelled) setStatus(t("chart.connected"));
         };
 
         socket.onmessage = (event) => {
@@ -111,16 +113,16 @@ export default function CryptoChart({ symbol = "BTCUSDT", interval = "1m" }) {
         };
 
         socket.onerror = () => {
-          if (!cancelled) setStatus("خطای اتصال");
+          if (!cancelled) setStatus(t("chart.error"));
         };
 
         socket.onclose = () => {
-          if (!cancelled) setStatus("اتصال قطع شد");
+          if (!cancelled) setStatus(t("chart.lost"));
         };
       } catch (error) {
         if (!cancelled) {
           console.error(error);
-          setStatus("خطا در دریافت اطلاعات");
+          setStatus(t("chart.information"));
         }
       }
     }
@@ -130,23 +132,23 @@ export default function CryptoChart({ symbol = "BTCUSDT", interval = "1m" }) {
     return () => {
       cancelled = true;
 
-  resizeObserver?.disconnect();
+      resizeObserver?.disconnect();
 
-  if (socket) {
-    socket.onopen = null;
-    socket.onmessage = null;
-    socket.onerror = null;
-    socket.onclose = null;
+      if (socket) {
+        socket.onopen = null;
+        socket.onmessage = null;
+        socket.onerror = null;
+        socket.onclose = null;
 
-    if (
-      socket.readyState === WebSocket.OPEN ||
-      socket.readyState === WebSocket.CONNECTING
-    ) {
-      socket.close();
-    }
-  }
+        if (
+          socket.readyState === WebSocket.OPEN ||
+          socket.readyState === WebSocket.CONNECTING
+        ) {
+          socket.close();
+        }
+      }
 
-  chart?.remove();
+      chart?.remove();
     };
   }, [symbol, interval]);
 
@@ -159,7 +161,9 @@ export default function CryptoChart({ symbol = "BTCUSDT", interval = "1m" }) {
 
         <span
           className={`ml-auto text-xs ${
-            status === "متصل" ? "text-green-400" : "text-gray-400"
+            status === "connected" || "متصل"
+              ? "text-green-400"
+              : "text-gray-400"
           }`}
         >
           {status}

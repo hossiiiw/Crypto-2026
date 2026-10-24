@@ -211,5 +211,85 @@
     "google": "ادامه با گوگل",
     "title-3": "از قبل حساب کاربری دارید؟",
     "title-4": "ورود"
+  },
+
+  "market-stats": {
+    "total-market-cap": "ارزش کل بازار",
+    "volume-24h": "حجم معاملات ۲۴ ساعت",
+    "bitcoin": "بیت‌کوین",
+    "account-balance": "موجودی حساب",
+    "change-24h": "+2.45% در ۲۴ ساعت",
+    "change-vs-yesterday": "+8.21% نسبت به دیروز",
+    "available-balance": "موجودی قابل استفاده"
+  },
+  "trade-page": {
+    "home": "بازار",
+    "easy-trade": "معامله آسان",
+    "title": "معامله ارز دیجیتال",
+    "description": "بازار رو بررسی کن و معاملاتت رو مدیریت کن.",
+    "market-status": "وضعیت بازار",
+    "market-active": "بازار فعال"
+  },
+  "chart": {
+    "connecting": "در حال اتصال...",
+    "connected": "متصل",
+    "error": " خطای اتصال",
+    "lost": "اتصال قطع شد",
+    "information": "خطا در دریافت اطلاعات"
+  },
+  "order-book": {
+    "title": "دفتر سفارشات",
+    "pair": "BTC ",
+    "price": "قیمت ",
+    "amount": "مقدار ",
+    "total": "مجموع",
+    "current-price": "قیمت فعلی"
+  },
+  "market-history": {
+    "title": "تاریخچه معاملات",
+    "subtitle": "آخرین فعالیت‌های حساب",
+    "view-all": "مشاهده همه ←",
+    "coin": "ارز",
+    "type": "نوع",
+    "price": "قیمت",
+    "time": "زمان",
+    "buy": "خرید",
+    "sell": "فروش"
+  },
+  "market-open-order": {
+    "title": "سفارشات من",
+    "subtitle": "مدیریت سفارش‌های فعال",
+    "all": "همه",
+    "buy": "خرید",
+    "sell": "فروش",
+    "pair": "جفت‌ارز",
+    "type": "نوع",
+    "price": "قیمت",
+    "amount": "مقدار",
+    "status": "وضعیت",
+    "actions": "عملیات",
+    "pending": "در انتظار",
+    "completed": "تکمیل شده",
+    "cancel": "لغو"
+  },
+  "trade-form": {
+    "title": "ثبت سفارش",
+    "pair": "BTC / USDT",
+    "buy": "خرید",
+    "sell": "فروش",
+    "limit": "محدود (Limit)",
+    "market": "بازار (Market)",
+    "unit-price": "قیمت هر واحد",
+    "coin-amount": "مقدار ارز",
+    "total-amount": "مبلغ کل",
+    "available-balance": "موجودی قابل استفاده",
+    "estimated-fee": "کارمزد تقریبی",
+    "percent-25": "25%",
+    "percent-50": "50%",
+    "percent-75": "75%",
+    "percent-100": "100%",
+    "submit-buy": "خرید {{coin}}",
+    "submit-sell": "فروش {{coin}}",
+    "disclaimer": "قبل از ثبت سفارش، مقدار و قیمت معامله را بررسی کنید."
   }
 }

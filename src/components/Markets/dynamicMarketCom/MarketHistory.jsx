@@ -1,15 +1,18 @@
+import { useTranslation } from "react-i18next";
+
 function MarketHistory() {
+  const { t } = useTranslation();
   return (
     <div className="min-w-0  overflow-hidden rounded-2xl border border-app-text/10 bg-app-surface xl:col-span-5">
       <div className="flex flex-wrap items-center justify-between gap-3 border-b border-app-text/10 p-4 sm:p-5">
         <div>
-          <h2 className="font-black">تاریخچه معاملات</h2>
+          <h2 className="font-black"> {t("market-history.title")}</h2>
           <p className="mt-1 text-xs text-app-text-muted">
-            آخرین فعالیت‌های حساب
+            {t("market-history.subtitle")}{" "}
           </p>
         </div>
         <button className="text-xs font-semibold text-app-primary">
-          مشاهده همه ←
+          {t("market-history.view-all")}
         </button>
       </div>
 
@@ -17,22 +20,25 @@ function MarketHistory() {
         <table className="w-full min-w-[450px] text-right text-sm">
           <thead className="bg-app-background/60 text-xs text-app-text-muted">
             <tr>
-              <th className="p-4 font-medium">ارز</th>
-              <th className="p-4 font-medium">نوع</th>
-              <th className="p-4 font-medium">قیمت</th>
-              <th className="p-4 font-medium">زمان</th>
+              <th className="p-4 font-medium">{t("market-history.coin")}</th>
+              <th className="p-4 font-medium">{t("market-history.type")}</th>
+              <th className="p-4 font-medium">{t("market-history.price")}</th>
+              <th className="p-4 font-medium">{t("market-history.time")}</th>
             </tr>
           </thead>
           <tbody>
             <tr className="border-b border-app-text/5 transition hover:bg-app-background/40">
               <td className="p-4 font-semibold">BTC/USDT</td>
-              <td className="p-4 text-emerald-500">خرید</td>
+              <td className="p-4 text-emerald-500">
+                {" "}
+                {t("market-history.buy")}
+              </td>
               <td className="p-4">67,210.45</td>
               <td className="p-4 text-xs text-app-text-muted">14:32</td>
             </tr>
             <tr className="border-b border-app-text/5 transition hover:bg-app-background/40">
               <td className="p-4 font-semibold">ETH/USDT</td>
-              <td className="p-4 text-red-500">فروش</td>
+              <td className="p-4 text-red-500">{t("market-history.sell")}</td>
               <td className="p-4">3,245.12</td>
               <td className="p-4 text-xs text-app-text-muted">13:17</td>
             </tr>

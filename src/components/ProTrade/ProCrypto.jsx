@@ -1,56 +1,24 @@
 function ProCrypto({ info, handler }) {
+  const coins = ["BTC", "ETH", "TRX", "DOGE", "CAKE"];
+
   return (
-    <div className="flex items-center gap-2 my-4">
-      <button
-        onClick={() => handler("BTC")}
-        className={
-          info?.symbol === "BTCUSDT"
-            ? "rounded-xl border border-app-text/10 px-6 py-3 font-bold bg-app-border"
-            : "rounded-xl border border-app-text/10 bg-app-surface px-6 py-3 font-bold hover:bg-app-border"
-        }
-      >
-        BTC
-      </button>
-      <button
-        onClick={() => handler("ETH")}
-        className={
-          info?.symbol === "ETHUSDT"
-            ? "rounded-xl border border-app-text/10 px-6 py-3 font-bold bg-app-border"
-            : "rounded-xl border border-app-text/10 bg-app-surface px-6 py-3 font-bold hover:bg-app-border"
-        }
-      >
-        ETH
-      </button>
-      <button
-        onClick={() => handler("TRX")}
-        className={
-          info?.symbol === "TRXUSDT"
-            ? "rounded-xl border border-app-text/10 px-6 py-3 font-bold bg-app-border"
-            : "rounded-xl border border-app-text/10 bg-app-surface px-6 py-3 font-bold hover:bg-app-border"
-        }
-      >
-        TRX
-      </button>
-      <button
-        onClick={() => handler("DOGE")}
-        className={
-          info?.symbol === "DOGEUSDT"
-            ? "rounded-xl border border-app-text/10 px-6 py-3 font-bold bg-app-border"
-            : "rounded-xl border border-app-text/10 bg-app-surface px-6 py-3 font-bold hover:bg-app-border"
-        }
-      >
-        DOGE
-      </button>
-      <button
-        onClick={() => handler("CAKE")}
-        className={
-          info?.symbol === "CAKEUSDT"
-            ? "rounded-xl border border-app-text/10 px-6 py-3 font-bold bg-app-border"
-            : "rounded-xl border border-app-text/10 bg-app-surface px-6 py-3 font-bold hover:bg-app-border"
-        }
-      >
-        CAKE
-      </button>
+    <div className="my-4 flex flex-wrap items-center gap-2">
+      {coins.map((coin) => {
+        const isActive = info?.symbol === `${coin}USDT`;
+
+        return (
+          <button
+            key={coin}
+            type="button"
+            onClick={() => handler(coin)}
+            className={`rounded-xl border border-app-text/10 px-4 py-2.5 text-sm font-bold transition-colors sm:px-6 sm:py-3 sm:text-base ${
+              isActive ? "bg-app-border" : "bg-app-surface hover:bg-app-border"
+            }`}
+          >
+            {coin}
+          </button>
+        );
+      })}
     </div>
   );
 }
